@@ -2,10 +2,20 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
 class HelloController
 {
-    public function index()
+    #[Route('/')]
+    public function index(): Response
     {
-        die('Carregou!');
+        return new Response('Olá Mundo!');
+    }
+
+    #[Route('/dinossauro')]
+    public function dinossauro(): Response
+    {
+        return new Response('Olá dinossauro!');
     }
 }
