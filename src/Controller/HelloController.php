@@ -13,9 +13,10 @@ class HelloController
         return new Response('Olá Mundo!');
     }
 
-    #[Route('/dinossauro')]
-    public function dinossauro(): Response
+    #[Route('/animal/{slug}')]
+    public function animal(string $slug=null): Response
     {
-        return new Response('Olá dinossauro!');
+        $newSlug = str_replace('-', ' ',$slug);
+        return new Response('Olá, '.$newSlug);
     }
 }
