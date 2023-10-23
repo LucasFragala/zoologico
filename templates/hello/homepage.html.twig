@@ -1,8 +1,19 @@
-<h1>{{ title }}</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block title %}{{ parent() }} - Home{% endblock %}
 Bem-vindo ao nosso site!
 
 <ul>
     {% for user in users %}
-        <li>Nome: {{ user.name }} - Idade: {{ user.idade }} anos</li>
+        <li>
+                {% if user.name == 'Cachorro' %}
+                        >>
+                {% endif %}
+                Nome: {{ user.name|upper }} - Idade: {{ user.idade }} anos
+        </li>
     {% endfor %}
 </ul>
+
+{% endblock %}
